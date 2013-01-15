@@ -15,7 +15,8 @@ class FileScanner():
 
         #Scanning the whole contents of the folder
         allpaths = [os.path.join(path, name) for name in file_list \
-                    if ".%s" % name.lower().split(".")[-1] in self.ext_list]
+                    if ".%s" % os.path.join(path, name).lower().\
+                    split(".")[-1] in self.ext_list]
 
         #Selecting only folders
         subdirs_paths = [os.path.join(path, name) for name in file_list \
